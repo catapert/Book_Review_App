@@ -35,19 +35,22 @@ namespace BookReview.DataAccess
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("BookReviewDB")))
             {
-                List<Book> books = new List<Book>();
-                books.Add(book);
-
-                connection.Execute("dbo.Book_Update @idBook, @name, @author, @avgRating, @coverImage", books);
+                connection.Execute("dbo.Book_Update @idBook, @name, @author, @avgRating, @coverImage", book);
             }
         }
         public void InsertBook(Book book)
         {
-
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("BookReviewDB")))
+            {
+                connection.Execute("dbo.Book_Insert @idBook, @name, @author, @avgRating, @coverImage", book);
+            }
         }
         public void DeleteBook(int idBook)
         {
-
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("BookReviewDB")))
+            {
+                connection.Execute("dbo.Book_Delete @idBook", idBook);
+            }
         }
     }
 }

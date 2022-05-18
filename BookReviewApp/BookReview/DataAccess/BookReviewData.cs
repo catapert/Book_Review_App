@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Linq;
 using System.Text;
 using BookReview.Models;
 using Dapper;
@@ -10,19 +12,32 @@ namespace BookReview.DataAccess
     {
         public List<Models.BookReview> GetReviews(int idBook)
         {
-            throw new NotImplementedException();
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("BookReviewDB")))
+            {
+                var output = connection.Query<Models.BookReview>("dbo.BookReview_Get_Reviews @idBook", idBook).ToList();
+                return output;
+            }
         }
         public void UpdateReview(Models.BookReview bookReview)
         {
-
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("BookReviewDB")))
+            {
+                connection.Execute("dbo.BookReview_Update @idReview, @idAccount, @idBook, @review, @rating", bookReview);
+            }
         }
         public void InsertReview(Models.BookReview bookReview)
         {
-
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("BookReviewDB")))
+            {
+                connection.Execute("dbo.BookReview_Insert @idReview, @idAccount, @idBook, @review, @rating", bookReview);
+            }
         }
         public void DeleteReview(int idReview)
         {
-
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("BookReviewDB")))
+            {
+                connection.Execute("dbo.BookReview_Delete @idReview", idReview);
+            }
         }
     }
 }
