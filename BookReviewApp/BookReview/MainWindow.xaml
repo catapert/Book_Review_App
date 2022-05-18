@@ -8,6 +8,10 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <ListBox x:Name="BooksLB" HorizontalAlignment="Left" Height="208" Margin="123,111,0,0" VerticalAlignment="Top" Width="305" SelectionChanged="BooksLB_SelectionChanged"/>
+        <Image x:Name="bookCoverImage" HorizontalAlignment="Left" Height="155" Margin="510,111,0,0" VerticalAlignment="Top" Width="123" Stretch="Fill"/>
+        <Button x:Name="photoBTN" Content="Button" HorizontalAlignment="Left" Margin="548,305,0,0" VerticalAlignment="Top" Click="photoBTN_Click"/>
+        <Button x:Name="clear" Content="Button" HorizontalAlignment="Left" Margin="677,305,0,0" VerticalAlignment="Top" Click="clear_Click"/>
+        <TextBox x:Name="testTB" HorizontalAlignment="Left" Height="33" Margin="444,365,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="183"/>
 
     </Grid>
 </Window>

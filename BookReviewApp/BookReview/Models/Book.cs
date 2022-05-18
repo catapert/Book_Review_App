@@ -10,13 +10,13 @@ namespace BookReview.Models
         public string name { get; set; }
         public string author { get; set; }
         public Single avgRating { get; set; }
-        //public byte[] coverImage { get; set; }
-        
+        public byte[] coverImage { get; set; }
+
         public string Display
         {
-            get 
+            get
             {
-                return $"{ idBook }. { name } by { author }"; 
+                return $"{ idBook }. { name } by { author }";
             }
         }
 

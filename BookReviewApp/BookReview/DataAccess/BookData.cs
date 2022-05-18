@@ -18,5 +18,36 @@ namespace BookReview.DataAccess
                 return output;
             }
         }
+        //public Book GetBook(int idBook)
+        //{
+        //    using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("BookReviewDB")))
+        //    {
+        //        List<Book> books = new List<Book>();
+        //        //books.Add(new Book { idBook = idBook, name = "", author = "", avgRating = 0, coverImage = null });
+
+        //        //var output = connection.Execute("dbo.Book_Update @idBook", books);
+        //        books = connection.Query<Book>("dbo.Book_Update @idBook", idBook).ToList();
+        //        Book output = books.FirstOrDefault<Book>();
+        //        return output;
+        //    }
+        //}
+        public void UpdateBook(Book book)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("BookReviewDB")))
+            {
+                List<Book> books = new List<Book>();
+                books.Add(book);
+
+                connection.Execute("dbo.Book_Update @idBook, @name, @author, @avgRating, @coverImage", books);
+            }
+        }
+        public void InsertBook(Book book)
+        {
+
+        }
+        public void DeleteBook(int idBook)
+        {
+
+        }
     }
 }
