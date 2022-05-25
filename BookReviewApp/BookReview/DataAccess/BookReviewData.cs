@@ -14,7 +14,15 @@ namespace BookReview.DataAccess
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("BookReviewDB")))
             {
-                var output = connection.Query<Models.BookReview>("dbo.BookReview_Get_Reviews @idBook", idBook).ToList();
+                var output = connection.Query<Models.BookReview>("dbo.BookReview_Get_Reviews @idBook", new { idBook }).ToList();
+                return output;
+            }
+        }
+        public List<Models.BookReview> GetReviewsForAccount(int idAccount)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("BookReviewDB")))
+            {
+                var output = connection.Query<Models.BookReview>("dbo.BookReview_Get_Reviews_For_Account @idAccount", new { idAccount }).ToList();
                 return output;
             }
         }
@@ -36,7 +44,7 @@ namespace BookReview.DataAccess
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("BookReviewDB")))
             {
-                connection.Execute("dbo.BookReview_Delete @idReview", idReview);
+                connection.Execute("dbo.BookReview_Delete @idReview", new { idReview });
             }
         }
     }

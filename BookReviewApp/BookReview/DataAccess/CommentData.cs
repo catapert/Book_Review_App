@@ -15,29 +15,29 @@ namespace BookReview.DataAccess
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("BookReviewDB")))
             {
-                var output = connection.Query<Comment>("dbo.Comment_Get_Comments @idReview", idReview).ToList();
+                var output = connection.Query<Comment>("dbo.Comment_Get_Comments @idReview", new { idReview }).ToList();
                 return output;
             }
         }
-        public void InsertAccount(Comment comment)
+        public void InsertComment(Comment comment)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("BookReviewDB")))
             {
                 connection.Execute("dbo.Comment_Insert @idComment, @comment, @idAccount, @idReview", comment);
             }
         }
-        public void UpdateAccount(Comment comment)
+        public void UpdateComment(Comment comment)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("BookReviewDB")))
             {
                 connection.Execute("dbo.Comment_Update @idComment, @comment, @idAccount, @idReview", comment);
             }
         }
-        public void DeleteAccount(int idComment)
+        public void DeleteComment(int idComment)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("BookReviewDB")))
             {
-                connection.Execute("dbo.Comment_Delete @idComment", idComment);
+                connection.Execute("dbo.Comment_Delete @idComment", new { idComment });
             }
         }
     }

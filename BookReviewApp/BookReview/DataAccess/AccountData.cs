@@ -10,11 +10,19 @@ namespace BookReview.DataAccess
 {
     class AccountData
     {
-        public List<Account> GetAccounts(int idAccount)
+        public List<Account> GetAccounts()
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("BookReviewDB")))
             {
                 var output = connection.Query<Account>("Select * from Account").ToList();
+                return output;
+            }
+        }
+        public List<Account> GetAccount(int idAccount)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("BookReviewDB")))
+            {
+                var output = connection.Query<Account>("dbo.Account_Get_Account @idAccount", new { idAccount }).ToList(); ;
                 return output;
             }
         }
@@ -36,7 +44,7 @@ namespace BookReview.DataAccess
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("BookReviewDB")))
             {
-                connection.Execute("dbo.Account_Delete @idAccount", idAccount);
+                connection.Execute("dbo.Account_Delete @idAccount", new { idAccount });
             }
         }
     }

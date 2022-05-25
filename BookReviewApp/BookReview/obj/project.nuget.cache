@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "MkxVQioqNK0gnn7iMwnQACXkqK3IZs2a0cW1olUlyFnrJCOwmOaWazzuBY1MVrGtDv90dIceyhXaR87WO/oZ9A==",
+  "dgSpecHash": "zorYWwE7Cov1Ewr5VjtY22TsQXnyxqNb6zAMEdUaPNRcL5mNJ9Edb7uv35S8PofxzDLDtSGn3BFPFKgzmOHFvw==",
   "success": true,
   "projectFilePath": "D:\\Facultate\\An 3\\Sem 2\\II\\Proiect\\Proiect\\Book_Review_Website\\BookReviewApp\\BookReview\\BookReview.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\catap\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
+    "C:\\Users\\catap\\.nuget\\packages\\mahapps.metro.iconpacks.material\\4.11.0\\mahapps.metro.iconpacks.material.4.11.0.nupkg.sha512",
     "C:\\Users\\catap\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\catap\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\catap\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",

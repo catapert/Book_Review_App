@@ -1,0 +1,75 @@
+﻿<Window x:Class="BookReview.CommentsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BookReview"
+        mc:Ignorable="d"
+        Title="CommentsWindow" Height="700" Width="530"
+        AllowsTransparency="True" Background="Transparent"
+        WindowStyle="None" ResizeMode="NoResize"
+        MouseDown="CommentsWindow_OnMouseDown">
+    <Grid>
+        <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Grid.RowSpan="2">
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#1287A8" Offset="0.0"/>
+                    <GradientStop Color="#107896" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <Button x:Name="ExitBtn" Content="X" HorizontalAlignment="Left" Height="30" Margin="497,3,0,0" VerticalAlignment="Top" Width="30" Click="ExitBtn_Click"/>
+        </Border>
+
+        <StackPanel Margin="4" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <Image Source="/Images/Open_book.png" Width="80"/>
+            <TextBlock Text="Book Review"
+                           FontWeight="Light"
+                           FontFamily="helvetica"
+                           FontSize="22"
+                           Foreground="White"
+                           HorizontalAlignment="Center"/>
+        </StackPanel>
+        <ListBox x:Name="CommentsLB" HorizontalAlignment="Center" Height="260"
+                 Margin="0,160,0,0" VerticalAlignment="Top" Width="522"
+                 Background="{x:Null}"
+                 FontWeight="Light"
+                 FontFamily="helvetica"
+                 Foreground="White"
+                 FontSize="12" SelectionChanged="CommentsLB_SelectionChanged">
+            <ListBox.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </ListBox.Resources>
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Style.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Style.Resources>
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
+        <Button x:Name="InsertBtn" Content="Insert" HorizontalAlignment="Left" Height="40" Margin="428,505,0,0" VerticalAlignment="Top" Width="84" Click="InsertBtn_Click"/>
+        <Button x:Name="UpdateBtn" Content="Update" HorizontalAlignment="Left" Height="40" Margin="428,550,0,0" VerticalAlignment="Top" Width="84" Click="UpdateBtn_Click"/>
+        <Button x:Name="DeleteBtn" Content="Delete" HorizontalAlignment="Left" Height="40" Margin="428,595,0,0" VerticalAlignment="Top" Width="84" Click="DeleteBtn_Click"/>
+        <TextBox x:Name="CommentTB" HorizontalAlignment="Left" Height="130" 
+            Margin="25,505,0,0" Text="" 
+            TextWrapping="Wrap" VerticalAlignment="Top" 
+            Width="398"
+            Foreground="White"
+            Background="Transparent"
+            FontFamily="Helvetica"
+            FontWeight="Light"
+            FontSize="20"/>
+        <Label Content="Comment:" HorizontalAlignment="Left"
+            Height="35" Margin="25,470,0,0" VerticalAlignment="Top" 
+            Width="95"
+            Foreground="White"
+            Background="Transparent"
+            FontFamily="Helvetica"
+            FontWeight="Light"
+            FontSize="20"/>
+    </Grid>
+</Window>
